@@ -35,8 +35,13 @@ h1#outputText{
 	text-align: center;
 	margin: 0 -10% -3% 0% ; 
 }
+#circuitSP{
+	height: 45%;
+	width: ;
+	margin:9% 0% 0 -10%; 
+}
 #signal1c{
-	margin: 30% -13% 0 0;
+	margin:-5% -13% 0 0;
 }
 #signal1{
 		position: relative;

@@ -1,0 +1,94 @@
+		<svg id="secondSignal">
+			<!-- M = Move x:10 and y:10, L = Line x:50 and y:150-->
+			<path d="M10,10 L50,150 L90,250"></path>
+		</svg>
+<style type="text/css">
+*{
+	margin:0px auto;
+
+}
+svg#secondSignal{
+	width: 100%
+}
+	svg{
+		height: 400px;
+		width: 2000px;
+	}
+	path{
+		stroke:orange;
+		stroke-width:7px;
+		stroke-linecap: round;
+		fill:  none;
+	}
+
+	/* latin-ext */
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=k6e5O52B6MekHtih-eM9afesZW2xOQ-xsNqO47m55DA&skey=8887f17a62203d44&v=v1) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=yrOSjsChZucrvtFmTHmr7g&skey=8887f17a62203d44&v=v1) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+</style>
+<script type="text/javascript" >
+	//clip > 400 below signal clip ,clip < 
+	let clip = 50;	
+	//ideal clamp = 52 ,if clamp > 52 Signal Shifts down , if clamp < 52 upper signal gets clipped
+    let clamp = 52
+
+	//empty array drawArray[]
+	let drawArray = []
+
+	//max voltagePerDivisions : 41
+	let VoltagePerDivisons = 20
+	
+
+	let SignalLength = 500
+
+	for (var i = 0 ; i <SignalLength ; i++) {
+		drawArray.push(i)
+	}
+	let time = 0
+    //alert(c)
+  	
+
+function waveform() {
+
+	//var c = document.getElementById("clamp").value;
+  	//console.log(c);
+  	//taking x converting to some value...
+  	let points = drawArray.map(x => {
+  	//let y =  c+50*Math.sin((x+time)/20)
+  	
+  	
+  		//Without anything to add positive Signal gets Clipped !
+  		let y  =   clamp + clip * Math.sin((x +time)/ VoltagePerDivisons)
+    
+
+    /*let y =  clamp + clip * Math.sin((x +time)/ VoltagePerDivisons)*/
+    time +=1;
+    
+    //Draws Line
+    return [x, y]
+    
+  })
+  		//Converts points to 
+		let path =  "M" + points.map(p =>{
+
+			return p[0] + "," + p[1]
+		}).join(" L")
+
+		document.querySelector("path").setAttribute("d", path)
+		//Looping the animation
+		requestAnimationFrame(waveform);
+	}
+	waveform();
+</script>

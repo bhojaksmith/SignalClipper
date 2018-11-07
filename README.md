@@ -1,0 +1,2 @@
+# SignalClipper
+Basic Electronics Assignment

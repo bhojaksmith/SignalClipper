@@ -1,0 +1,22 @@
+<script src="index.js"></script>
+<svg id="firstSignal">
+	<!-- M = Move x:10 and y:10, L = Line x:50 and y:150 -->
+	<path d="M10,10 L50,150 L90,250"></path>
+</svg>
+<input type="button" onclick="waveform()" value="click">
+
+<style type="text/css">
+	#firstSignal{
+		margin-top: 0%;
+	}
+	svg{
+		height: 400px;
+		width: 2000px;
+	}
+	path{
+		stroke:orange;
+		stroke-width:7px;
+		stroke-linecap: round;
+		fill:  none;
+	}
+</style>

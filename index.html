@@ -1,0 +1,144 @@
+
+<div id="signal1c">
+	<h1 id="outputText">Output Signal :</h1>
+	<div id="signal1">
+		
+		<svg id="firstSignal">
+			<!-- M = Move x:10 and y:10, L = Line x:50 and y:150-->
+			
+			<path d="M10,10 L50,150 L90,250"></path>
+
+		</svg>
+	</div>
+</div>
+<div id="signal2c">
+	<div id="signal2">
+		<svg id="secondSignal">
+			<!-- M = Move x:10 and y:10, L = Line x:50 and y:150-->
+			<path d="M10,10 L50,150 L90,250"></path>
+		</svg>
+	</div>
+</div>
+
+<style type="text/css">
+
+*{
+	margin:0px auto;
+}
+h1#outputText{
+	text-align: center;
+	margin: 0 -10% -3% 0% ; 
+}
+#signal1c{
+	margin: 30% -13% 0 0;
+}
+#signal1{
+		position: relative;
+		margin: 3% 1% 0 50%;
+		height:23%;
+		width: 30%;
+		background: #434343;
+  		background-image:linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  		background-size:50px 50px;
+	  		border-radius: 1.5%;
+	  	/*	transform: rotateX(180deg);*/
+	}
+
+	#firstSignal{
+		position: absolute;
+		margin: 12% 4% 0 1%;
+		/*Positive Signal Clip if */
+		
+
+		
+	}
+	svg{
+		height: 400px;
+		width: 2000px;
+	}
+	path{
+		stroke:orange;
+		stroke-width:7px;
+		stroke-linecap: round;
+		fill:  none;
+	}
+	body{
+		background: #f1f1f1;
+		
+		margin:0;
+		font-family:'Avenir'; 
+	}
+	/* latin-ext */
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=k6e5O52B6MekHtih-eM9afesZW2xOQ-xsNqO47m55DA&skey=8887f17a62203d44&v=v1) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=yrOSjsChZucrvtFmTHmr7g&skey=8887f17a62203d44&v=v1) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+</style>
+<input type="number" name="" id="clamp" value="">
+<!-- <input type="button" onclick="waveform()" name="" value="Clip me"> -->
+<script type="text/javascript">
+
+	//clip > 400 below signal clip ,clip < 
+	let clip = 50;	
+	//ideal clamp = 52 ,if clamp > 52 Signal Shifts down , if clamp < 52 upper signal gets clipped
+    let clamp = 5
+
+	//empty array drawArray[]
+	let drawArray = []
+
+	//max voltagePerDivisions : 41
+	let VoltagePerDivisons = 20
+	
+
+	let SignalLength = 500
+
+	for (var i = 0 ; i <SignalLength ; i++) {
+		drawArray.push(i)
+	}
+	let time = 0
+    //alert(c)
+  	
+
+function waveform() {
+
+	var c = document.getElementById("clamp").value;
+  	//console.log(c);
+  	//taking x converting to some value...
+  	let points = drawArray.map(x => {
+  	//let y =  c+50*Math.sin((x+time)/20)
+  	
+  	
+  		//Without anything to add positive Signal gets Clipped !
+  		let y  =   clamp + clip * Math.sin((x +time)/ VoltagePerDivisons)
+    
+
+    /*let y =  clamp + clip * Math.sin((x +time)/ VoltagePerDivisons)*/
+    time +=1;
+    //Draws Line
+    
+    return [x, y+c]
+    
+  })
+  		//Converts points to 
+		let path =  "M" + points.map(p =>{
+
+			return p[0] + "," + p[1]
+		}).join(" L")
+
+		document.querySelector("path").setAttribute("d", path)
+		//Looping the animation
+		requestAnimationFrame(waveform);
+	}
+	waveform();
+</script>

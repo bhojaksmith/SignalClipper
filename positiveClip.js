@@ -21,7 +21,7 @@
 
 function waveform() {
 
-	var c = document.getElementById("clamp").value;
+	//var c = document.getElementById("clamp").value;
   	//console.log(c);
   	//taking x converting to some value...
   	let points = drawArray.map(x => {
@@ -36,7 +36,7 @@ function waveform() {
     time +=1;
     
     //Draws Line
-    return [x, y+c]
+    return [x, y]
     
   })
   		//Converts points to 

@@ -1,6 +1,9 @@
-<h1 style="text-align: center;font-size:4em;">Positive Clipper !</h1>
+<h1 style="text-align: center;font-size:4em;margin: 1.2%; ">Positive Clipper !</h1>
+
 <div id="signal1c">
 	<h1 id="outputText">Output Signal :</h1>
+	
+	<p style="position: absolute;" id="outputVmax">-Vmax</p>
 	<div id="signal1">
 		
 		<svg id="firstSignal">
@@ -10,102 +13,26 @@
 
 		</svg>
 	</div>
+
 </div>
+
 <div id="signal2c">
 	<h1 id="inputText">Input Signal :</h1>
+
+	<p style="position: absolute;" id="inputVmaxp">-Vmax</p>
+	<p style="position: absolute;" id="inputVmaxn">+Vmax</p>
+	
 	<div id="signal2">
+		
 		<iframe src="input.html" scrolling="no" id="inputSignal"></iframe>
+	
 	</div>
+
 </div>
 
-<style type="text/css">
-iframe#inputSignal{
-	margin:8% 0% 0 1%;
-	width: 100%;
-}
-h1#inputText{
-	text-align: center;
-	margin: 0 -10% -3% 0% ; 
-}
-#signal2c{
-	margin: -40% -13% 0 0;
-}
-#signal2{
-		position: relative;
-		margin: 3% 1% 0 50%;
-		height:23%;
-		width: 30%;
-		background: #434343;
-  		background-image:linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
-  			background-size:50px 50px;
-	  		border-radius: 1.5%;
-	  		/*transform: rotateX(0deg);*/
-	}
+<link rel="stylesheet" type="text/css" href="positive.css">
+<style type="text/css"></style>
 
-h1#outputText{
-	text-align: center;
-	margin: 0 -10% -3% 0% ; 
-}
-#signal1c{
-	margin: 30% -13% 0 0;
-}
-#signal1{
-		position: relative;
-		margin: 3% 1% 0 50%;
-		height:23%;
-		width: 30%;
-		background: #434343;
-  		background-image:linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
-  		background-size:50px 50px;
-	  		border-radius: 1.5%;
-	  	/*	transform: rotateX(180deg);*/
-	}
-
-	#firstSignal{
-		position: absolute;
-		margin: 18% 4% 0 1%;
-		/*Positive Signal Clip if */
-		
-
-		
-	}
-	svg{
-		height: 400px;
-		width: 2000px;
-	}
-	path{
-		stroke:orange;
-		stroke-width:7px;
-		stroke-linecap: round;
-		fill:  none;
-	}
-	body{
-		background: #f1f1f1;
-		
-		margin:0;
-		font-family:'Avenir'; 
-	}
-	iframe{
-		border: none;
-		overflow: hidden;
-		}
-	/* latin-ext */
-@font-face {
-  font-family: 'Avenir';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=k6e5O52B6MekHtih-eM9afesZW2xOQ-xsNqO47m55DA&skey=8887f17a62203d44&v=v1) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Avenir';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Avenir LT Pro 45 Book'), local('AvenirLTPro-Book'), url(https://fonts.gstatic.com/l/font?kit=yrOSjsChZucrvtFmTHmr7g&skey=8887f17a62203d44&v=v1) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-</style>
-<input type="number" name="" id="clamp" value="">
 <!-- <input type="button" onclick="waveform()" name="" value="Clip me"> -->
- <script type="text/javascript" src="positiveClip.js"></script> 
+<script type="text/javascript" src="drawCircuits.js"></script>
+<script type="text/javascript" src="positiveClip.js"></script> 

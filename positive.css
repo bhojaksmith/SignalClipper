@@ -25,10 +25,22 @@ h1#inputText{
 		height:23%;
 		width: 30%;
 		background: #434343;
-  		background-image:linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  		background-image:linear-gradient(0deg, transparent 24%,
+  						 rgba(255, 255, 255, 1) 25%, 
+  						 rgba(255, 255, 255, 1) 26%,
+  						  transparent 27%, transparent 74%, 
+  						  rgba(255, 255, 255, .05) 75%, 
+  						  rgba(255, 255, 255, .05) 76%,
+  						   transparent 77%, transparent), 
+  						linear-gradient(90deg, transparent 24%,
+  						 rgba(255, 255, 255, .05) 25%,
+  						  rgba(255, 255, 255, .05) 26%, 
+  						  transparent 27%, transparent 74%, 
+  						  rgba(255, 255, 255, .05) 75%,
+  						   rgba(255, 255, 255 ,0.5) 76%, transparent 74%);
   			background-size:50px 50px;
 	  		border-radius: 1.5%;
-	  		/*transform: rotateX(0deg);*/
+	  		transform: rotateX(0deg);
 	}
 
 h1#outputText{
@@ -41,7 +53,7 @@ h1#outputText{
 	margin:9% 0% 0 -10%; 
 }
 #signal1c{
-	margin:-5% -13% 0 0;
+	margin:-3% -13% 0 0;
 }
 #signal1{
 		position: relative;
@@ -57,16 +69,28 @@ h1#outputText{
 
 	#firstSignal{
 		position: absolute;
-		margin: 18% 4% 0 1%;
+		margin: 12% 4% 0 2%;
 		width: 97%;
+
 		/*Positive Signal Clip if */
 		
 
 		
 	}
+	#border{
+		border-left:2px solid white;
+		margin:  0% 0% 0% 1%;
+		padding-bottom: 30%;
+	}
+	#borderb{
+		position: absolute;
+		border-bottom:2px solid white;
+		margin:  18% 0% 0% 0%;
+		padding-right: 100%;
+	}
 	svg{
 		height: 400px;
-		width: 2000px;
+		width: 3000px;
 	}
 	path{
 		stroke:orange;
@@ -76,7 +100,6 @@ h1#outputText{
 	}
 	body{
 		background: #f1f1f1;
-		
 		margin:0;
 		font-family:'Avenir'; 
 	}
@@ -84,6 +107,10 @@ h1#outputText{
 		border: none;
 		overflow: hidden;
 		}
+
+	#hr1{
+		margin: 0% 0% 10% 0%;
+	}
 	/* latin-ext */
 @font-face {
   font-family: 'Avenir';
